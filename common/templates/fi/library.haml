@@ -1,0 +1,16 @@
+.mid-bar.search-bar
+  %a.half.selected(href="#/title" data-name="search_title")teos
+  %a.half(href="#/author" data-name="search_author")tekijä
+
+.mid-bar.menu
+  %a.selected.third(href="#/recommended" data-name="recommended")suositukset
+  %a.third(href="#/recent" data-name="recent")uutuuksia
+  %a.third(href="#/search" data-name="search")haku
+
+.content-scroller
+  .content
+    %ul.recommended.selected(data-name="recommended")
+    %ul.recent(data-name="recent")
+    %ul.search_author(data-name="search_author")
+    %ul.search_title(data-name="search_title")
+

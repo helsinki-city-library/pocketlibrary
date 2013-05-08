@@ -1,0 +1,62 @@
+.mid-bar.menu
+  %a.col.left.width_2_columns(data-name="user-info-content" href="#/settings" class="selected") sinä 
+  %a.col.right.width_2_columns(data-name="general-info" href="#/info") tietoa palvelusta
+
+.content-scroller
+  .content
+    .col.width_4_columns(id="user-info-content")
+      .user-info
+        .user_name <%= first_name %> <%= last_name %>
+        .user_cardNum 
+          %span.cardNum-icon #
+          %span.cardNum <%= card_number %>
+        -#%a(href="#/showBar" class="button small show_bar_button") Näytä viivakoodi
+
+      .debt
+        %h3 Velkasaldosi
+        %span.payments <%= payments %> €
+
+      .logout
+        %a(href="#/logout" class="button") Kirjaudu ulos
+
+    .col.width_4_columns(id="general-info")
+      .description
+        %p HelMet-taskukirjasto on HelMet-kirjaston mobiilipalvelu, jossa voit uusia lainasi, varata aineistoa, lainata kirjaston teoksia suoraan toiselta kirjaston käyttäjältä, tutustua kirjaston kokoelmaan ja suositella tai kommentoida teoksia Facebook-sivullasi. 
+        
+        %a(href="mailto:taskupalaute@helmet-kirjasto.fi?subject=Palautetta HelMet-taskukirjastosta" class="button feedback") Palaute
+      .terms
+        %h3 Käytön ehdot
+        
+        %p Tätä sovellusta ylläpitää ja sen tarjoaa käyttöön Helsingin kaupunginkirjasto. Asentamalla sovelluksen ja käyttämällä sitä sitoudut noudattamaan näitä ja sovelluksen käyttöön mahdollisesti liittyvän kolmannen osapuolen sivuston käyttöehtoja. Pidätämme itsellämme oikeuden muuttaa näitä käyttöehtoja.
+        
+        %p 1. Käyttäjät		
+		
+        %p Sovellusta voivat käyttää HelMet-kirjaston asiakkaat. HelMet-kirjastoon kuuluvat Helsingin kaupunginkirjasto, Vantaan kaupunginkirjasto, Espoon kaupunginkirjasto ja Kauniaisten kaupunginkirjasto.
+
+        %p
+          HelMet-kirjaston asiakkaana olet sitoutunut kirjaston käyttösääntöjen noudattamiseen. Olet vastuussa siitä aineistosta, joka kirjastokortillasi lainataan. Katso käyttösäännöt tarkemmin www.helmet.fi. 
+          Saatamme kerätä sovelluksen käyttöä koskevia tietoja, joihin ei sisälly yksittäisen käyttäjän henkilötiedot tai muu henkilötietolain suojaama tieto. Helmet-kirjaston henkilötietolain mukainen rekisteriseloste on saatavilla www.helmet.fi. 
+
+        %p 2. Saatavuus
+				
+        %p Sovelluksemme tarjotaan käyttöön sellaisenaan ja sen toimintaa voivat tilapäisesti haitata virheet, päivitykset tai seikat, joihin emme voi vaikuttaa. Pidätämme oikeuden muuttaa tai poistaa sovelluksen tai sen osia käytöstäsi milloin tahansa ilman erillistä ilmoitusta. Käyttäjänä vastaat itse Internet-palveluntarjoajan maksuista ja muista sovelluksemme käyttöön liittyvistä maksuista.
+
+        %p 3. Immateriaalioikeudet
+		
+        %p Sovelluksen ja sen kautta käytettävien tietojen, sisältöjen ja ohjelmistojen kaikki immateriaalioikeudet kuuluvat Helsingin kaupunginkirjastolle, sen lisenssinantajille tai sovelluksen käyttöön mahdollisesti liittyvän kolmannen osapuolen sivuston ylläpitäjälle. Sovelluksen kopiointia, muokkaamista, jakelua, myymistä, lisensoimista ja käyttämistä kaupallisiin tarkoituksiin säätelee sille osoitettu lisenssi. Sovellusta tai sen sisältämää tekijänoikeudellista materiaalia ei saa käyttää laittomasti.
+
+        %p 4. Linkit muihin sivustoihin
+		
+        %p Emme ole hyväksyneet tai tarkastaneet sovelluksen myötä mahdollisesti käyttämiäsi kolmannen osapuolten sivustoja tai linkillä sivustoomme yhdistettyjä kolmansien osapuolten sivustoja, emmekä ole vastuussa millään tapaa niiden sisällöstä. Kolmansien osapuolten ylläpitämien sivustojen käytössä sovelletaan kyseisten sivustojen ja alustojen sääntöjä.
+		
+        %p 5. Vastuuvapauslauseke
+	 	
+        %p Helsingin kaupunginkirjasto ei takaa sovelluksen tai sen kautta käytetyn sisällön paikkansapitävyyttä, luotettavuutta tai täydellisyyttä. Helsingin kaupunginkirjasto, lisenssinantajamme ja sovelluksen käyttöön mahdollisesti liittyvien kolmannen osapuolen sivustojen ylläpitäjät eivät ole vastuussa sovelluksen käytön tai käytön estymisen sinulle tai kolmannelle osapuolelle aiheuttamista suorista tai epäsuorista, satunnaisista tai johdannaisista menetyksistä tai vahingoista, mukaan lukien sovelluksen lataamisesta johtuvat tietojen menetykset tai vahingot.
+		
+        %p Sinua voivat koskea muut kuluttajaoikeudet, joihin nämä käyttöehdot eivät vaikuta. Jos jokin näiden käyttöehtojen ehdoista todetaan lainvastaiseksi, pätemättömäksi tai toimeenpanokelvottomaksi, ehtojen kaikki muut kohdat pysyvät edelleen voimassa.
+		
+        %p 6. Sovellettava lainsäädäntö
+	 	
+        %p Näitä käyttöehtoja sovelletaan Suomen lakien mukaan.
+        
+        %br

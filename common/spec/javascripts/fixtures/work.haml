@@ -1,0 +1,8 @@
+#work
+  =::Haml::Engine.new(File.read('templates/fi/work.haml'), instance_variable_get(:@haml_buffer).options).render
+
+%script(type="text/template" id="work-template")
+  =::Haml::Engine.new(File.read('templates/fi/work_item.haml'), instance_variable_get(:@haml_buffer).options).render
+
+%script(type="text/template" id="work-action-template")
+  =::Haml::Engine.new(File.read('templates/fi/work_action.haml'), instance_variable_get(:@haml_buffer).options).render

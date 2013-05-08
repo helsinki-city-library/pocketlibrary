@@ -1,0 +1,15 @@
+$base_width: 320px;
+$gutter: 16px;
+$medium_gutter: 2 * $gutter;
+$large_gutter: 88px;
+$button_height: 56px;
+
+$content: $base_width - $gutter * 2;
+
+$heading_font_size: 16pt;
+$title_font_size: 19pt;
+$button_font_size: 30pt;
+
+$mid_bar_color: #4898AD;
+$mid_bar_selected_color: #387989;
+$mid_bar_selected_shadow: #333333;

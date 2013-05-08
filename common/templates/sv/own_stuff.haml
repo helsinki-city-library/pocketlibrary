@@ -1,0 +1,12 @@
+.mid-bar.menu
+  %a.selected.half(href="#/loans" data-name="loans")lån
+  %a.half(href="#/reserved" data-name="reserved")reserverade
+
+.content-scroller
+  .content
+    %ul.loans.selected(data-name="loans")
+    %ul.reserved(data-name="reserved")
+    -#%ul.history(data-name="history")
+
+    %a.renew-all.button(href="#/renewAll") Nya alla lån
+

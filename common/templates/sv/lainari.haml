@@ -1,0 +1,129 @@
+!!!html5
+%head
+  %title HelMet  Mobilbibliotekskort
+  %meta(charset="utf-8")
+  %meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0")
+  %meta(name="apple-mobile-web-app-capable" content="yes")
+  %meta(name="apple-mobile-web-app-status-bar-style" content="black")
+  %meta(name="format-detection" content="telephone=no")
+
+  %link(rel="stylesheet" media="screen and (max-width: 359px)" href="/css/style_320.css" type="text/css")
+  %link(rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 479px)" href="/css/style_360.css" type="text/css")
+  %link(rel="stylesheet" media="screen and (min-width: 480px)" href="/css/style_480.css" type="text/css")
+  %script(type="text/javascript" src="/lib/jquery.min.js" )
+  %script(type="text/javascript" src="/lib/cordova-2.2.0.js")
+  %script(type="text/javascript" src="/lib/barcodescanner.js")
+  -#%script(type="text/javascript" src="/lib/notificationservice.js")
+  %script(type="text/javascript" src="/lib/cdv-plugin-fb-connect.js")
+  %script(type="text/javascript" src="/lib/facebook_js_sdk.js")
+  %script(type="text/javascript" src="/lib/GoogleAnalyticsPlugin.js")
+  %script(type="text/javascript" src="/lib/underscore.js")
+  %script(type="text/javascript" src="/lib/underscore.string.min.js")
+  %script(type="text/javascript" src="/lib/backbone.js")
+  %script(type="text/javascript" src="/lib/iscroll.js")
+  %script(type="text/javascript" src="/lib/moment.min.js")
+  %script(type="text/javascript" src="/src/lang-sv.js")
+  %script(type="text/javascript" src="/src/orchestrator.js")
+  %script(type="text/javascript" src="/src/models.js")
+  %script(type="text/javascript" src="/src/views/login.js")
+  %script(type="text/javascript" src="/src/views/main_menu.js")
+  %script(type="text/javascript" src="/src/views/worklist.js")
+  %script(type="text/javascript" src="/src/views/own_stuff.js")
+  %script(type="text/javascript" src="/src/views/settings.js")
+  %script(type="text/javascript" src="/src/views/work.js")
+  %script(type="text/javascript" src="/src/views/friend_loan.js")
+  %script(type="text/javascript" src="/src/views/receipt.js")
+  %script(type="text/javascript" src="/src/views/library.js")
+  %script(type="text/javascript" src="/src/views/marked.js")
+  %script(type="text/javascript" src="/src/views/user-barcode.js")
+  %script(type="text/javascript" src="/src/views/barcode_confirm.js")
+  %script(type="text/javascript" src="/src/views/reserve_book.js")
+  %script(type="text/javascript" src="/src/main.js")
+
+%body
+  #search-bar
+    %form(method="POST")
+      %input(type="search" placeholder="Skriv in din sökning..." disabled="disabled")
+      -#%input(type="reset" value="")
+    .bar-button.close
+      %p Stäng
+
+  #top-bar
+    .title Pocketbibban 
+    .bar-button.back
+      .div.left-arrow
+        %span 
+      %p Bakåt
+    .bar-button.marked-button.pin-button
+      %p
+        %span
+
+  #own-stuff(data-title="Egna lån" data-scrollable="true")
+    =::Haml::Engine.new(File.read('templates/sv/own_stuff.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #settings(data-title="Uppgifter" data-scrollable="true")
+
+  #library(data-title="Bibliotek" data-scrollable="true")
+    =::Haml::Engine.new(File.read('templates/sv/library.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #marked(data-title="Minneslista" data-scrollable="true")
+    =::Haml::Engine.new(File.read('templates/sv/marked.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #main-menu(data-title="Pocketbibban")
+    =::Haml::Engine.new(File.read('templates/sv/main_menu.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #friend-loan(data-title="Kompislån")
+    =::Haml::Engine.new(File.read('templates/sv/friend_loan.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #receipt(data-title="Lånekvitto" data-scrollable="true")
+    -# Add this so the scroller can attach to it without further ado.
+    .content-scroller
+      .content
+
+  #work(data-title="Verk" data-scrollable="true")
+    =::Haml::Engine.new(File.read('templates/sv/work.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #login-screen
+    =::Haml::Engine.new(File.read('templates/sv/login_screen.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  #loader
+    %p Söker...
+
+  #barcode(data-title="Streckkod")
+    .content
+
+  #barcode-confirm(data-title="Mata in din PIN-kod")
+
+  #reserve-book(data-title="Välj bibliotek" data-scrollable="true")
+    =::Haml::Engine.new(File.read('templates/fi/reserve_book.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="login-screen-template")
+    =::Haml::Engine.new(File.read('templates/sv/login_screen.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="work-item-template")
+    =::Haml::Engine.new(File.read('templates/sv/work_collection_item.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="settings-template")
+    =::Haml::Engine.new(File.read('templates/sv/settings.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="work-template")
+    =::Haml::Engine.new(File.read('templates/sv/work_item.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="work-action-template")
+    =::Haml::Engine.new(File.read('templates/sv/work_action.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="receipt-item-template")
+    =::Haml::Engine.new(File.read('templates/sv/receipt_item.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="receipt-view-template")
+    =::Haml::Engine.new(File.read('templates/sv/receipt.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="barcode-confirm-template")
+    =::Haml::Engine.new(File.read('templates/sv/barcode_confirm.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="exceptional-situation-template")
+    =::Haml::Engine.new(File.read('templates/fi/exceptional_situation.haml'), instance_variable_get(:@haml_buffer).options).render
+
+  %script(type="text/template" id="reserve-book-template")
+    =::Haml::Engine.new(File.read('templates/fi/reserved_item.haml'), instance_variable_get(:@haml_buffer).options).render
+

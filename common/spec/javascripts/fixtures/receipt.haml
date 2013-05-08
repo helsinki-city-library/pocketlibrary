@@ -1,0 +1,8 @@
+#receipt
+  .content
+
+%script#receipt-view-template(type="text/template")
+  =::Haml::Engine.new(File.read('templates/fi/receipt.haml'), instance_variable_get(:@haml_buffer).options).render
+
+%script#receipt-item-template(type="text/template")
+  =::Haml::Engine.new(File.read('templates/fi/receipt_item.haml'), instance_variable_get(:@haml_buffer).options).render

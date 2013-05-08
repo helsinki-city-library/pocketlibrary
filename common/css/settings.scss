@@ -1,0 +1,109 @@
+#settings {
+  width: $base_width;
+  background-color: #323232;
+  font-size: 14px;
+
+  .mid-bar {
+      text-transform: lowercase;
+      .left, .right {
+          margin: 0px !important;
+      }
+  }
+
+  .content {
+    padding-bottom: $gutter_width * 2;
+    margin: $gutter_width; 
+  }
+
+  .user-info {
+    background: white url("/img/bg.png") left top repeat;
+    padding: 1.5 * $gutter_width 10px 2 * $gutter_width 2 * $gutter_width;
+
+    .user_name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 0px; 
+    }
+    .user_name:before {
+      content: url("/img/user.png");
+      margin-right: 10px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-top: -5px;
+    }
+    .cardNum {
+      font-size: 20px;
+    }
+    .cardNum-icon {
+      margin-right: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .show_bar_button {
+      margin-top: $gutter_width * 2;
+    }
+  }
+
+  .debt {
+    margin-top: $gutter_width;
+    padding: $gutter_width *2;
+    background: white url("/img/bg.png") left top repeat;
+    
+    h3 {
+      font-size: 20px;
+      display: inline;
+    }
+    .payments
+    {
+        color: #ec4a48;
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: 7px;
+    }
+  }
+
+  .logout {
+    background: white url("/img/bg.png") left top repeat;
+    margin-top: $gutter_width;
+    padding: $gutter_width * 2;
+    text-align: center;
+
+    .button {
+      background-color: white;
+      color: #ec4a48;
+      border: 1px solid #ec4a48;
+
+      &:active {
+          background-color: #ec4a48;
+          color: white;
+      }
+      &.selected {
+          background-color: #ec4a48;
+          color: white;
+      }
+    }
+  }
+
+  #general_info {
+    display: none;
+  }
+
+  .description {
+    background: white url("/img/bg.png") left top repeat;
+    padding: 1.5 * $gutter_width 2 * $gutter_width;
+    .button {
+        margin-top: $gutter_width * 2;
+    }
+  } 
+
+  .terms {
+    background: white url("/img/bg.png") left top repeat;
+    padding: 1.5 * $gutter_width 2 * $gutter_width;
+    margin-top: $gutter_width;
+    h3 {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+    }
+  }
+}

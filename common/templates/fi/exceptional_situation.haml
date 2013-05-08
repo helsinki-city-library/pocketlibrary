@@ -1,0 +1,8 @@
+%div(class="col left width_4_columns")
+  .actions
+    :plain
+      <% for (var i = 0; i < messages.length; i++) { %>
+      <% var message = messages[i]; %>
+    %p <%= message %>
+    :plain
+      <% } %>

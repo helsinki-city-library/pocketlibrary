@@ -1,0 +1,77 @@
+#receipt .content {
+    width: $base_width;
+    font-family: "Courier New", Monospace;
+    padding: $gutter_width * 4 0 24px 0;
+    margin-bottom: 32px;
+
+    background-image: url("/img/receipt_top.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+
+    h1, h2, h3 {
+        font-size: 16px;
+        text-shadow: white -1px 0;
+        margin: 5px 0;
+        font-weight: normal;
+    }
+
+    ul, footer {
+        background-image: url("/img/receipt_bg.png");
+        background-repeat: repeat-y;
+    }
+
+    header, footer {
+        text-align: center;
+    }
+
+    header {
+        margin-top: 32px;
+    }
+
+    footer {
+        padding: 16px 32px;
+    }
+
+    .bottom {
+        width: 320px;
+        background-image: url("/img/receipt_bottom.png");
+        height: 10px;
+        background-repeat: no-repeat;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 32px auto 0 auto;
+        padding: 0 48px;
+        li {
+            margin: $gutter_width * 2 0;
+            h1 { 
+                font-weight: bold; 
+            }
+            h2, h3 {
+                font-weight: normal;
+            }
+            h3, .due-date {
+                display: inline;
+            }
+
+            .error {
+                color: red;
+                font-weight: bold;
+                text-shadow: none;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+body.android {
+    #receipt .content {
+        header {
+            margin-top: 0px;
+        }
+    }
+}

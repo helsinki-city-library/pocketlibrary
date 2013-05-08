@@ -1,0 +1,22 @@
+.col {
+  width: $grid_column_width;
+  position: relative;
+  display: inline-block;
+}
+
+@for $i from 1 through 4 {
+  .width_#{$i}_columns {
+    width: $i * $grid_column_width + ($i - 1) * $gutter_width;
+  }
+}
+
+.right {
+  float: right;
+  margin-right: $gutter_width;
+}
+
+.left {
+  float: left;
+  margin-left: $gutter_width;
+}
+

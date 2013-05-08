@@ -1,0 +1,178 @@
+$background_color: #F1F1F1;
+
+#work_item_template {
+  display: none;
+}
+.work-item {
+  .work-item_header {
+    font-size: 1.2em;
+}
+.work-item_content {
+  .work-item_author {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .work-item_year {
+    display: inline-block;
+  }
+  .work-item_due {
+    margin-left: 41px;
+  }
+}
+.work-item_content:before {
+  content: url(picture_here);
+}
+}
+
+#work {
+  background-color: #323232;
+  width: $base_width;
+  min-height: $base_width;
+
+  &.no-author {
+    .work_author {
+      display: none;
+    }
+  }
+  &.no-title {
+    .work_header {
+      display: none;
+    }
+  }
+  &.no-year {
+    .work-year {
+      display: none;
+    }
+  }
+  &.no-publisher {
+    .work-publisher {
+      display: none;
+    }
+  }
+
+  &.default-picture {
+    .work-picture {
+      img {
+        padding: $work_image_padding;
+        border: solid 1px #D6D6D6;
+        background-color: #FFF;
+        width: 48px !important;
+      }
+    }
+  }
+  .work_info {
+    background: white url("/img/bg.png") left top repeat;
+    margin: $gutter_width;
+    padding: $work_info-padding;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    
+
+    .work-picture {
+      -webkit-box-sizing: border-box;  
+      -webkit-box-pack: start;
+      padding-right: 16px;
+      text-align: center;
+      max-width: 150px; 
+      img {
+          width: 100%;
+      }
+    }
+
+    .work_content {
+      -webkit-box-pack: end;
+      -webkit-box-flex: 2;
+      max-width: 40%;
+      font-size: $work_content_size;
+      font-weight: 700;
+      margin-left: 5px;
+      
+      .work_header {
+        font-size: $work_title_size;
+        margin: -1px 0 0 0;
+        word-wrap: break-word;
+        line-height: 1em;
+      }
+    }
+
+    .work_publisher {
+        margin-top: 0px;
+    }
+    .work_author, .status {
+        margin-top: 14px;
+        &.status.important {
+            color: #ec4a48;
+        }
+    }
+  }
+
+  
+    .work_actions {
+        background: white url("/img/bg.png") left top repeat;
+        margin: 0 $gutter_width $gutter_width $gutter_width;
+        background-color: $background_color;
+        padding: $work_info-padding;
+        position: relative;
+
+        .renew-loan {
+            display: none;
+        }
+
+        .add-pin {
+            background-image: url('/img/buttons/pin.png');
+            background-repeat: no-repeat;
+            background-position: 12px 8px;
+            font-size: 12px;
+            position: absolute;
+            top: 72px;
+            left: 16px;
+            height: 32px;
+            padding-left: 21px;
+            -webkit-box-sizing: border-box;
+        }
+        
+        .fb-like {
+            background-image: url('/img/buttons/f_icon.png');
+            background-repeat: no-repeat;
+            background-position: 14px 10px;
+            font-size: 12px;
+            position: absolute;
+            top: 72px;
+            right: 16px;
+            height: 32px;
+            padding-left: 17px;
+            -webkit-box-sizing: border-box;
+        }
+
+        .holdings {
+            margin-top: 61px;
+            font-size: $work_content_size;
+            line-height: 1.4em;
+        }
+    }
+
+    &[data-loaned="true"] {
+        .work_actions {
+            .renew-loan {
+                display: block;
+            }
+            .reserve-book {
+                display: none;
+            }
+        }
+    }
+
+    &[data-marked="true"] {
+        .work_actions {
+            .add-pin {
+                display: none;
+            }
+            .fb-like {
+                left: 16px;
+                right: inherit;
+            }
+
+        }
+    }
+}
+

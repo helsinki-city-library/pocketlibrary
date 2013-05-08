@@ -1,0 +1,42 @@
+{
+  "patron identifier": "20000016082451", 
+  "valid patron": true, 
+  "institution id": "helsp", 
+  "recall items count": 0, 
+  "hold items count": 0, 
+  "unavailable holds count": 0, 
+  "valid patron password": true, 
+  "charged items count": 4, 
+  "overdue items count": 0, 
+  "overdue items limit": 50, 
+  "hold items limit": 30, 
+  "transaction date": "2012-04-16T09:51:00", 
+  "language": {
+    "id": 0, 
+    "name": "Unknown (default)"
+  }, 
+  "items": {
+    "charged items": [
+      "30091040741665", 
+      "30091043733354", 
+      "30091016435664", 
+      "30091013471985"
+    ], 
+    "fine items": [
+      "65779", 
+      "65780"
+    ]
+  }, 
+  "patron status": [], 
+  "personal name": "Tuominen, Timo Ilmari", 
+  "charged items limit": 40, 
+  "fee limit": [
+    999, 
+    2
+  ], 
+  "fine items count": 2, 
+  "fee amount": [
+    120, 
+    2
+  ]
+}

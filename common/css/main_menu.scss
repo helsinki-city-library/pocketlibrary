@@ -1,0 +1,73 @@
+#main-menu {
+    position: absolute;
+    background-color: $main-menu_background_color;
+
+    width: $base_width;
+    margin: 0 auto;
+
+    .content {
+        margin-top: $top_bar_height;
+    }
+
+    a {
+        -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+        -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+        -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+    } 
+
+    a:before {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin-bottom: $gutter_width * 2;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+
+    a {
+        text-align: center;
+        font-size: $link_font_size;
+        font-weight: bold;
+        text-decoration: none;
+        color: #FFF;
+        margin-bottom: $top_bar_height;
+    }
+}
+
+
+body {
+    #main-menu {
+        a.data_ownstuff:before {
+            background-repeat: no-repeat;
+            background-image: url('/img/buttons/ownstuff.png');
+        }
+        a.selected.data_ownstuff:before {
+            background-image: url('/img/buttons/ownstuff_pressed.png');
+        }
+        a.data_library:before {
+            background-repeat: no-repeat;
+            background-image: url('/img/buttons/library.png');
+        }
+        a.data_library.selected:before {
+            background-image: url('/img/buttons/library_pressed.png');
+        }
+        a.data_settings:before {
+            background-repeat: no-repeat;
+            background-image: url('/img/buttons/settings.png');
+        }
+        a.data_settings.selected:before {
+            background-image: url('/img/buttons/settings_pressed.png');
+        }
+        a.data_friendloan:before {
+            background-repeat: no-repeat;
+            background-image: url('/img/buttons/friendloan.png');
+        }
+        a.data_friendloan.selected:before {
+            background-image: url('/img/buttons/friendloan_pressed.png');
+        }
+    }
+}
+

@@ -1,0 +1,12 @@
+.mid-bar.menu
+  %a.selected.half(href="#/loans" data-name="loans")lainat
+  %a.half(href="#/reserved" data-name="reserved")varatut
+
+.content-scroller
+  .content
+    %ul.loans.selected(data-name="loans")
+    %ul.reserved(data-name="reserved")
+    -# %ul.history(data-name="history")
+
+    %a.renew-all.button(href="#/renewAll") Uusi kaikki lainat
+

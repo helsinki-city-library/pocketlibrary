@@ -1,0 +1,7 @@
+%form{:class => "login_form", :id => "login"}
+  .login_box
+    \<input type="text" pattern="[0-9]*" placeholder="Library card number" class="upper_rounded login_input border_bottom" name="username" value="<%= card_number %>" />
+    \<input type="password" pattern="[0-9]*" placeholder="Pin code" class="lower_rounded login_input" name="pin" value="<%= pin %>" />
+    %input{:type => "submit", :class => "button login_button", :value => "Log in"} 
+    .error(style="display:none") Incorrect User ID/Pincode
+

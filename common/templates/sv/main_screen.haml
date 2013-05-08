@@ -1,0 +1,13 @@
+%html
+  %head
+    %link{:href => "../css/style.css", :rel => "stylesheet", :type => "text/css"}
+    %script{:language => "javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+    %script{:language => "javascript", :src => "../src/main.js"}
+  %body
+    %div{:id => "login_screen_template"}
+      =::Haml::Engine.new(File.read('templates/sv/login_screen.haml'), instance_variable_get(:@haml_buffer).options).render
+    %div{:id => "book_item_template"}
+      =::Haml::Engine.new(File.read('templates/sv/book_item.haml'), instance_variable_get(:@haml_buffer).options).render
+    %div{:id => "icon_button_template"}
+      =::Haml::Engine.new(File.read('templates/sv/icon_button.haml'), instance_variable_get(:@haml_buffer).options).render
+

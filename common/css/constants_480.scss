@@ -1,0 +1,51 @@
+$base_width: 480px;
+$base_height: 800px;
+$border_gutter: 12px;
+$content: $base_width - $border_gutter * 2;
+$status_bar_height: 0px;
+
+$grid_count: 4;
+$gutter_width: 12px;
+$medium_gutter_width: 2 * $gutter_width;
+
+$grid_column_width: ($base_width - ($grid_count + 1) * $gutter_width) / $grid_count;
+
+$span_1_width: $grid_column_width;
+$span_2_width: 2 * $grid_column_width + $gutter_width;
+$span_3_width: 3 * $grid_column_width + 2 * $gutter_width;
+$span_4_width: 4 * $grid_column_width + 3 * $gutter_width;
+
+$button_height: 56px;
+$top_bar_height: 44px;
+
+$heading_font_size: 18pt;
+$title_font_size: 19pt;
+$button_font_size: 30pt;
+
+
+// Login-screen variables
+$login_form_width_margin: 32px;
+
+// Main-menu variables
+$main-menu_background_color: #323232;
+$link_font_size: 14px;
+
+// Mid-bar variables
+$mid-bar_fontsize: 13px;
+$mid-bar_link_height: 28px;
+$mid_bar_color: #4898AD;
+$mid_bar_selected_color: #387989;
+$mid_bar_selected_shadow: #1B3A42;
+
+// work-view variables
+$work_title_size: 20px;
+$work_content_size: 12px;
+$work_title_margin: 4px;
+$work_image_padding: 16px;
+
+$work_info-padding: 16px;
+
+// loading variables
+$box_height: 80px;
+$box_width: 150px;
+

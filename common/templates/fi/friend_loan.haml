@@ -1,0 +1,13 @@
+%div(class="col left width_4_columns")
+  .instructions
+    %p 
+      Lainaa kirjaston kirja, elokuva tai musiikki suoraan ystävältäsi. Lue teoksen viivakoodi puhelimesi kameralla tai näppäile numerot itse.
+  
+  .actions
+    .read-barcode
+      %a(href="#/read_barcode" class="button") Lue viivakoodi
+    %p tai
+    
+    %form(class="barcode-input-form")
+      %input(type="text" pattern="[0-9]*" name="barcode" class="barcode-input" placeholder="Syötä viivakoodi käsin" autocomplete="off")
+

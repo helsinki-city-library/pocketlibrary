@@ -1,0 +1,71 @@
+#login-screen {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: $base_width;
+    background: #4798AF; /* Old browsers */
+
+    h1 {
+        position: absolute;
+        text-align: center;
+        width: $base_width;
+        font-size: 26pt;
+        top: 25%;
+    }
+    .login_form {
+        width: $base_width - 2 * $login_form_width_margin;
+        position: absolute;
+        bottom: 24px;
+        margin-left: $login_form_width_margin;
+    }
+
+    .login_box {
+      .login_input {
+        display: block;
+        -webkit-box-sizing: border-box;
+        padding: 5px 10px;
+        border: 0;
+        font-size: 20px;
+        background-color: #FFFFFF;
+        width: $base_width - 2 * $login_form_width_margin;
+        height: 40px; 
+        color: #323232;
+      }
+      .upper_rounded {
+        border: solid 1px #397A8C;
+        border-radius: 9px 9px 0px 0px;
+        -webkit-border-radius: 9px 9px 0px 0px;
+
+        -webkit-box-shadow: inset 0 1px 3px 0px #7F7F7F;
+      }
+      .lower_rounded {
+        border: solid 1px #397A8C;
+        border-top: 0;
+        -webkit-box-shadow: inset 0 -1px 3px 0px #7F7F7F;
+        border-radius: 0px 0px 10px 10px;
+        -webkit-border-radius: 0px 0px 10px 10px;
+        margin-top: -3px;
+      }
+      .border_bottom {
+        border-bottom: solid 1px #F1F1F1;
+      }
+      .login_button {
+        padding: 0 40px;
+        height: 40px;
+        margin-top: 16px;
+        width: 100%;
+        -webkit-appearance: none;
+        &:active {
+            background-color: black;
+        }
+        &.selected {
+            background-color: black;
+        }
+      }
+      .error {
+          margin-top: $gutter_width;
+          text-align: center;
+      }
+    }
+}

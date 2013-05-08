@@ -1,0 +1,6 @@
+#barcode-confirm
+
+%script(type="text/template" id="barcode-confirm-template")
+  =::Haml::Engine.new(File.read('templates/fi/barcode_confirm.haml'), instance_variable_get(:@haml_buffer).options).render
+
+

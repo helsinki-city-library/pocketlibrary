@@ -1,0 +1,13 @@
+%div(class="col left width_4_columns")
+  .instructions
+    %p 
+      Låna biblioteksböcker, filmer och musik direkt från din vän. Avläs bokens streckkod med din telefons kamera eller skriv in numret själv. 
+  
+  .actions
+    .read-barcode
+      %a(href="#/read_barcode" class="button") Läs streckkoden
+    %p eller
+    
+    %form(class="barcode-input-form")
+      %input(type="text" pattern="[0-9]*" name="barcode" class="barcode-input" placeholder="Skriv in streckkoden för hand" autocomplete="off")
+

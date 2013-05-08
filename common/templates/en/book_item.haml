@@ -1,0 +1,10 @@
+.book-item
+  %h2{:class => "book-item_header"}
+    <=% work.header =>
+  .book-item_content
+    .book-item_author
+      <=% work.author => | 
+    .book-item_year
+      <=% work.year =>
+    .book-item_due
+      <=% work.due %>

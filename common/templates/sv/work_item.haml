@@ -1,0 +1,14 @@
+.work-picture
+  <img src="<%= picture_url %>">
+.work_content
+  %h2(class="work_header")
+    %span.work-title <%= title %>
+  .work_author
+    %span.work-author <%= author %>
+  .work_publisher
+    %span.work-publisher <%= publisher %>, 
+    %span.work-year <%= publication_year %>
+  \<div class="status <%= status_important %>"><%= status %></div>
+    
+
+

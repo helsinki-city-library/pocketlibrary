@@ -1,0 +1,11 @@
+%div(class="col left width_4_columns")
+  .instructions
+    Borrow a library book, a movie or music straight from your friend. Scan the item barcode with your mobile phone's camera or fill in the numbers.
+
+  .actions
+    .read-barcode
+      %a(href="#/read_barcode" class="button") Scan barcode
+    %p or
+    
+    %form(class="barcode-input-form")
+      %input(type="text" pattern="[0-9]*" name="barcode" class="barcode-input" placeholder="Fill in barcode number" autocomplete="off")

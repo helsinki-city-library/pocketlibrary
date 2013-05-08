@@ -1,0 +1,16 @@
+.mid-bar.search-bar
+  %a.half.selected(href="#/title" data-name="search_title")title
+  %a.half(href="#/author" data-name="search_author")author
+
+.mid-bar.menu
+  %a.selected.third(href="#/recommended" data-name="recommended")featured
+  %a.third(href="#/recent" data-name="recent")latest
+  %a.third(href="#/search" data-name="search")search
+
+.content-scroller
+  .content
+    %ul.recommended.selected(data-name="recommended")  
+    %ul.recent(data-name="recent")
+    %ul.search_author(data-name="search_author")
+    %ul.search_title(data-name="search_title")
+

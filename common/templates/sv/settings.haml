@@ -1,0 +1,60 @@
+.mid-bar.menu
+  %a.col.left.width_2_columns(data-name="user-info-content" href="#/settings" class="selected") du 
+  %a.col.right.width_2_columns(data-name="general-info" href="#/info") information 
+
+.content-scroller
+  .content
+    .col.width_4_columns(id="user-info-content")
+      .user-info
+        .user_name <%= first_name %> <%= last_name %>
+        .user_cardNum 
+          %span.cardNum-icon #
+          %span.cardNum <%= card_number %>
+        -#%a(href="#/showBar" class="button small show_bar_button") Visa streckkoden
+
+      .debt
+        %h3 Ditt skuldsaldo
+        %span.payments <%= payments %> €
+
+      .logout
+        %a(href="#/logout" class="button") Logga ut
+
+    .col.width_4_columns(id="general-info")
+      .description
+        %p Detta applikation hanteras och tillhandahålls av Helsingfors stadsbibliotek. Genom att installera och använda den här applikationen binder du dig till att följa dessa användarvillkor och användarvillkor för tredje parts webbplatser som du eventuellt använder i samband med denna applikationen. Vi förbehåller oss rätten att ändra dessa användarvillkor. 
+
+        %a(href="mailto:taskupalaute@helmet-kirjasto.fi?subject=Feedback till Mobilbibliotekskort" class="button feedback") Feedback 
+
+      .terms
+        %h3 Villkor för användningen
+
+        %p 1. Användare
+
+        %p Applikationen kan användas av HelMet-bibliotekets kunder. HelMet-biblioteket utgörs av Helsingfors stadsbibliotek, Vanda stadsbibliotek, Esbo stadsbibliotek och Grankulla stadsbibliotek.
+
+        %p Som kund vid HelMet-biblioteket har du bundit dig till att följa bibliotekets låneregler. Du ansvarar för det material som lånas ut med ditt bibliotekskort. Du kan läsa lånereglerna på adressen www.helmet.fi. 
+
+        %p Vi kan samla in uppgifter rörande användningen av applikationen. Dessa uppgifter omfattar inte enskilda användares personuppgifter eller annan information som skyddas av personuppgiftslagen. Helmet-bibliotekets registerbeskrivning i enlighet med personuppgiftslagen finns tillgänglig på adressen www.helmet.fi. 
+
+        %p Tillgänglighet
+
+        %p Applikationen erbjuds för användning i befintligt skick och dess funktion kan tillfälligt störas av fel, uppdateringar eller faktorer som vi inte kan påverka. Vi förbehåller oss rätten att utan separat meddelande ändra eller ta bort hela eller delar av applikationen, så att applikationen eller delar av det inte längre kan användas. Som användare står du själv för avgifter som Internetoperatören tar ut och andra avgifter i anslutning till användningen av applikationen.
+
+        %p Immateriella rättigheter
+
+        %p Samtliga immateriella rättigheter till applikationen och till den information, de innehåll och de programvaror som används via det tillhör Helsingfors stadsbibliotek, dess licensgivare eller administratörer för tredje parts webbplatser som du eventuellt använder i samband med applikationen. Kopiering, redigering, distribuering, försäljning, licensiering och användning av applikationen för kommersiella syften styrs av licensen som anvisats det. Applikationen eller upphovsrättsligt material som det innehåller får inte användas olagligt.
+
+        %p Länkar till andra webbplatser
+
+        %p Vi har inte godkänt eller kontrollerat tredje parts webbplatser som du eventuellt använder i samband med applikationen eller tredje parts webbplatser som länkats till vår webbplats, och bär inget ansvar för innehållet på dessa. Vid användning av webbplatser som administreras av tredje parter tillämpas reglerna för de ifrågavarande sidorna eller plattformarna.
+
+        %p  5. Ansvarsfrihetsklausul
+
+        %p Helsingfors stadsbibliotek ger ingen garanti för att applikationen eller innehåll som används via det är korrekt, pålitligt eller fullständigt. Helsingfors stadsbibliotek, våra licensgivare och administratörer för tredje parts webbplatser som eventuellt används i samband med applikationen frånsäger sig allt ansvar för sådana förluster eller skador, inklusive dataförluster och skador som orsakats av hämtning av applikationen, som åsamkats dig eller tredje part, oavsett om det sker direkt eller indirekt, oavsiktligt eller på något sätt till följd av användning eller förhindrad användning av applikationen.
+
+        %p Som konsument kan du ha rättigheter som inte påverkas av de här användarvillkoren. Om något av användarvillkoren bedöms vara olagligt, ogiltigt eller inte tillämpbart ska de återstående villkoren fortsätta att gälla i fullständig utsträckning.
+
+        %p 6. Lagstiftning som tillämpas
+
+        %p Dessa användarvillkor tillämpas enligt Finlands lag.
+

@@ -1,0 +1,7 @@
+%form{:class => "login_form", :id => "login"}
+  .login_box
+    \<input type="text" pattern="[0-9]*" placeholder="Bibliotekskort nummer" class="upper_rounded login_input border_bottom" name="username" value="<%= card_number %>" />
+    \<input type="password" pattern="[0-9]*" placeholder="Pin-koodi" class="lower_rounded login_input" name="pin" value="<%= pin %>" />
+    %input{:type => "submit", :class => "button login_button", :value => "Logga in"} 
+    .error(style="display:none") Väärä käyttäjätunnus/Pin
+

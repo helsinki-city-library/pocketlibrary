@@ -1,0 +1,135 @@
+@media all and (-webkit-device-pixel-ratio: 2) {
+    #top-bar .marked-button p span {
+       background: transparent url("/img/buttons/pin@2x.png") top left no-repeat !important;
+       -webkit-background-size: 100% auto;
+    }
+
+    #friend-loan {
+        .actions {
+            background: white url("/img/bg@2x.png") left top repeat;
+            -webkit-background-size: 100% auto;
+        }
+    }
+    #login-screen {
+        .lainari_picture {
+            background: transparent url("/img/logo@2x.png") no-repeat left bottom;
+            -webkit-background-size: 100% auto;
+        }
+    }
+    #main-menu {
+        a:before {
+            -webkit-background-size: 100% auto;
+        }
+        a[data-name="own-stuff"]:before {
+            background-image: url('/img/buttons/ownstuff@2x.png') !important;
+        }
+        a:active[data-name="own-stuff"]:before {
+            background-image: url('/img/buttons/ownstuff_pressed@2x.png') !important;
+        }
+        a[data-name="library"]:before {
+            background-image: url('/img/buttons/library@2x.png') !important;
+        }
+        a:active[data-name="library"]:before {
+            background-image: url('/img/buttons/library_pressed@2x.png') !important;
+        }
+        a[data-name="settings"]:before {
+            background-image: url('/img/buttons/settings@2x.png') !important;
+        }
+        a:active[data-name="settings"]:before {
+            background-image: url('/img/buttons/settings_pressed@2x.png') !important;
+        }
+        a[data-name="friend-loan"]:before {
+            background-image: url('/img/buttons/friendloan@2x.png') !important;
+        }
+        a:active[data-name="friend-loan"]:before {
+            background-image: url('/img/buttons/friendloan_pressed@2x.png') !important;
+        }
+    }
+    #work {
+        .work_actions {
+            .add-pin {
+                 background-image: url("/img/buttons/pin@2x.png");
+                 -webkit-background-size: 16px;
+            }
+
+            .fb-like {
+                 background-image: url("/img/buttons/f_icon@2x.png");
+                 -webkit-background-size: 6px 12px;
+            }
+        }
+       
+        .work-info, .work_actions {
+            background: white url("/img/bg@2x.png") left top repeat;
+            -webkit-background-size: 100% auto;
+        }
+    }
+    #settings {
+        .user-info, .debt, .logout, .description, .terms  {
+            background: white url("/img/bg@2x.png") left top repeat;
+            -webkit-background-size: 100% auto;
+        }
+        .user-info .user_name:before {
+            content: "";
+            background: transparent url("/img/user@2x.png") left top;
+            -webkit-background-size: 100% auto;
+            display: inline-block;
+            width: 14px;
+            height: 17px;
+        }
+    }
+    #own-stuff, #library, #marked {
+        .content  {
+            background: white url("/img/bg@2x.png") left top repeat;
+            -webkit-background-size: 100% auto;
+        }
+
+        ul {
+            li { 
+                .author:before {
+                    -webkit-background-size: 100% auto;
+                }
+            }
+
+            li[data-type="film"] {
+              .author:before {
+                  background-image: url('/img/cd@2x.png');
+              }
+            }
+            li[data-type="book"] {
+              .author:before {
+                  background-image: url('/img/book@2x.png');  
+              }
+            }
+        }
+
+        .work {
+            .delete {
+                background: transparent url("/img/buttons/delete@2x.png") center center no-repeat;
+                -webkit-background-size: 24px;
+            }
+        }
+    }
+}
+
+@media all and (-webkit-device-pixel-ratio: 2) and (min-height: 481px) {
+    body { 
+        #wrapper, .content-scroller {
+            height: 568px - 2.5 * $top_bar_height;
+        }
+
+        #barcode .content {
+            height: 568px - $top_bar_height;
+        }
+
+        #own-stuff, #library, #marked, #reserve-book {
+            ul.selected {
+              min-height: 568px - 2 * $top_bar_height - 4 * $gutter_width - $status_bar_height;   
+            }
+        }
+
+        .search-mode:not(.android) #wrapper {
+            height: 568px - 2.5 * $top_bar_height;
+        }
+    }
+}
+

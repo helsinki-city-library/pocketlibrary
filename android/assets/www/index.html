@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+  <title>Taskukirjasto</title>
+  <meta charset='utf-8' />
+  <meta content='width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0' name='viewport' />
+  <meta content='yes' name='apple-mobile-web-app-capable' />
+  <meta content='black' name='apple-mobile-web-app-status-bar-style' />
+  <meta content='telephone=no' name='format-detection' />
+  <link href='css/style_320.css' media='screen and (max-width: 359px)' rel='stylesheet' type='text/css' />
+  <link href='css/style_360.css' media='screen and (min-width: 360px) and (max-width: 479px)' rel='stylesheet' type='text/css' />
+  <link href='css/style_480.css' media='screen and (min-width: 480px)' rel='stylesheet' type='text/css' />
+  <script src='lib/jquery.min.js' type='text/javascript'></script>
+  <script src='lib/cordova-2.2.0-android.js' type='text/javascript'></script>
+  <script src='lib/barcodescanner-android.js' type='text/javascript'></script>
+  <script src='lib/cdv-plugin-fb-connect.js' type='text/javascript'></script>
+  <script src='lib/facebook_js_sdk.js' type='text/javascript'></script>
+  <script src='lib/GoogleAnalyticsPlugin-android.js' type='text/javascript'></script>
+  <script src='lib/underscore.js' type='text/javascript'></script>
+  <script src='lib/underscore.string.min.js' type='text/javascript'></script>
+  <script src='lib/backbone.js' type='text/javascript'></script>
+  <script src='lib/iscroll.js' type='text/javascript'></script>
+  <script src='lib/moment.min.js' type='text/javascript'></script>
+  <script src='src/lang-fi.js' type='text/javascript'></script>
+  <script src='src/orchestrator.js' type='text/javascript'></script>
+  <script src='src/models.js' type='text/javascript'></script>
+  <script src='src/views/login.js' type='text/javascript'></script>
+  <script src='src/views/main_menu.js' type='text/javascript'></script>
+  <script src='src/views/worklist.js' type='text/javascript'></script>
+  <script src='src/views/own_stuff.js' type='text/javascript'></script>
+  <script src='src/views/settings.js' type='text/javascript'></script>
+  <script src='src/views/work.js' type='text/javascript'></script>
+  <script src='src/views/friend_loan.js' type='text/javascript'></script>
+  <script src='src/views/receipt.js' type='text/javascript'></script>
+  <script src='src/views/library.js' type='text/javascript'></script>
+  <script src='src/views/marked.js' type='text/javascript'></script>
+  <script src='src/views/user-barcode.js' type='text/javascript'></script>
+  <script src='src/views/barcode_confirm.js' type='text/javascript'></script>
+  <script src='src/views/reserve_book.js' type='text/javascript'></script>
+  <script src='src/main.js' type='text/javascript'></script>
+</head>
+<body class="android">
+  <div id='search-bar'>
+    <form method='POST'>
+      <input disabled='disabled' placeholder='Kirjoita haku...' type='search' />
+    </form>
+    <div class='bar-button close'>
+      <p>Sulje</p>
+    </div>
+  </div>
+  <div id='top-bar'>
+    <div class='title'>Taskukirjasto</div>
+    <div class='bar-button back'>
+      <div class='div left-arrow'>
+        <span></span>
+      </div>
+      <p>Takaisin</p>
+    </div>
+    <div class='bar-button marked-button pin-button'>
+      <p>
+        <span></span>
+      </p>
+    </div>
+  </div>
+  <div data-scrollable='true' data-title='Omat lainat' id='own-stuff'>
+    <div class='mid-bar menu'>
+      <a class='selected half' data-name='loans' href='#/loans'>lainat</a>
+      <a class='half' data-name='reserved' href='#/reserved'>varatut</a>
+    </div>
+    <div class='content-scroller'>
+      <div class='content'>
+        <ul class='loans selected' data-name='loans'></ul>
+        <ul class='reserved' data-name='reserved'></ul>
+        <a class='renew-all button' href='#/renewAll'>Uusi kaikki lainat</a>
+      </div>
+    </div>
+  </div>
+  <div data-scrollable='true' data-title='Omat tiedot' id='settings'></div>
+  <div data-scrollable='true' data-title='Kirjasto' id='library'>
+    <div class='mid-bar search-bar'>
+      <a class='half selected' data-name='search_title' href='#/title'>teos</a>
+      <a class='half' data-name='search_author' href='#/author'>tekijä</a>
+    </div>
+    <div class='mid-bar menu'>
+      <a class='selected third' data-name='recommended' href='#/recommended'>suositukset</a>
+      <a class='third' data-name='recent' href='#/recent'>uutuuksia</a>
+      <a class='third' data-name='search' href='#/search'>haku</a>
+    </div>
+    <div class='content-scroller'>
+      <div class='content'>
+        <ul class='recommended selected' data-name='recommended'></ul>
+        <ul class='recent' data-name='recent'></ul>
+        <ul class='search_author' data-name='search_author'></ul>
+        <ul class='search_title' data-name='search_title'></ul>
+      </div>
+    </div>
+  </div>
+  <div data-scrollable='true' data-title='Muistilista' id='marked'>
+    <div class='content-scroller'>
+      <div class='content'>
+        <ul class='marked selected' data-name='marked'></ul>
+      </div>
+    </div>
+  </div>
+  <div data-title='Taskukirjasto' id='main-menu'>
+    <div class='content'>
+      <a class='col left width_2_columns data_ownstuff' data-name='own-stuff' href='#/own-stuff'>Omat lainat</a>
+      <a class='col right width_2_columns data_library' data-name='library' href='#/library'>Kirjasto</a>
+      <a class='col left width_2_columns data_friendloan' data-name='friend-loan' href='#/friend-loan'>Lainaa kaverilta</a>
+      <a class='col right width_2_columns data_settings' data-name='settings' href='#/settings'>Omat tiedot</a>
+    </div>
+  </div>
+  <div data-title='Kaverilaina' id='friend-loan'>
+    <div class='col left width_4_columns'>
+      <div class='instructions'>
+        <p>
+          Lainaa kirjaston kirja, elokuva tai musiikki suoraan ystävältäsi. Lue teoksen viivakoodi puhelimesi kameralla tai näppäile numerot itse.
+        </p>
+      </div>
+      <div class='actions'>
+        <div class='read-barcode'>
+          <a class='button' href='#/read_barcode'>Lue viivakoodi</a>
+        </div>
+        <p>tai</p>
+        <form class='barcode-input-form'>
+          <input autocomplete='off' class='barcode-input' name='barcode' pattern='[0-9]*' placeholder='Syötä viivakoodi käsin' type='text' />
+        </form>
+      </div>
+    </div>
+  </div>
+  <div data-scrollable='true' data-title='Kuitti' id='receipt'>
+    <div class='content-scroller'>
+      <div class='content'></div>
+    </div>
+  </div>
+  <div data-scrollable='true' data-title='Teos' id='work'>
+    <div class='content-scroller'>
+      <div class='content'>
+        <div class='work_info'></div>
+        <div class='work_actions'></div>
+      </div>
+    </div>
+  </div>
+  <div id='login-screen'>
+    <div class='login_screen'>
+      <div class='lainari_picture'></div>
+      <h1>Taskukirjasto</h1>
+    </div>
+    <form class='login_form' id='login'>
+      <div class='login_box'>
+        <input type="text" pattern="[0-9]*" placeholder="Kirjastokortin numero" class="upper_rounded login_input border_bottom" name="username" value="<%= card_number %>" />
+        <input type="password" pattern="[0-9]*" placeholder="Pin-koodi" class="lower_rounded login_input" name="pin" value="<%= pin %>" />
+        <input class='button login_button' type='submit' value='Kirjaudu sisään' />
+        <div class='error' style='display:none'>Väärä käyttäjätunnus/pin</div>
+      </div>
+    </form>
+  </div>
+  <div id='loader'>
+    <p>Haetaan...</p>
+  </div>
+  <div data-title='Viivakoodi' id='barcode'>
+    <div class='content'></div>
+  </div>
+  <div data-title='Syötä pin' id='barcode-confirm'></div>
+  <div data-scrollable='true' data-title='Noutopaikka' id='reserve-book'>
+    <div class='content-scroller'>
+      <div class='content'>
+        <ul class='selected' data-name='loans'></ul>
+      </div>
+    </div>
+  </div>
+  <script id='login-screen-template' type='text/template'>
+    <div class='login_screen'>
+      <div class='lainari_picture'></div>
+      <h1>Taskukirjasto</h1>
+    </div>
+    <form class='login_form' id='login'>
+      <div class='login_box'>
+        <input type="text" pattern="[0-9]*" placeholder="Kirjastokortin numero" class="upper_rounded login_input border_bottom" name="username" value="<%= card_number %>" />
+        <input type="password" pattern="[0-9]*" placeholder="Pin-koodi" class="lower_rounded login_input" name="pin" value="<%= pin %>" />
+        <input class='button login_button' type='submit' value='Kirjaudu sisään' />
+        <div class='error' style='display:none'>Väärä käyttäjätunnus/pin</div>
+      </div>
+    </form>
+  </script>
+  <script id='work-item-template' type='text/template'>
+    <div class='delete'></div>
+    <div class='title'><%= short_title %></div>
+    <div class='thumbnail'>
+      <img src="<%= thumbnail_url %>">
+    </div>
+    <div class='author'><%= short_author %></div>
+    <div class='year'><%= publication_year %></div>
+    <div class="status <%= status_important %>"><%= status %></div>
+  </script>
+  <script id='settings-template' type='text/template'>
+    <div class='mid-bar menu'>
+      <a class='col left selected width_2_columns' data-name='user-info-content' href='#/settings'>sinä</a>
+      <a class='col right width_2_columns' data-name='general-info' href='#/info'>tietoa palvelusta</a>
+    </div>
+    <div class='content-scroller'>
+      <div class='content'>
+        <div class='col width_4_columns' id='user-info-content'>
+          <div class='user-info'>
+            <div class='user_name'><%= first_name %> <%= last_name %></div>
+            <div class='user_cardNum'>
+              <span class='cardNum-icon'>#</span>
+              <span class='cardNum'><%= card_number %></span>
+            </div>
+          </div>
+          <div class='debt'>
+            <h3>Velkasaldosi</h3>
+            <span class='payments'><%= payments %> €</span>
+          </div>
+          <div class='logout'>
+            <a class='button' href='#/logout'>Kirjaudu ulos</a>
+          </div>
+        </div>
+        <div class='col width_4_columns' id='general-info'>
+          <div class='description'>
+            <p>HelMet-taskukirjasto on HelMet-kirjaston mobiilipalvelu, jossa voit uusia lainasi, varata aineistoa, lainata kirjaston teoksia suoraan toiselta kirjaston käyttäjältä, tutustua kirjaston kokoelmaan ja suositella tai kommentoida teoksia Facebook-sivullasi.</p>
+            <a class='button feedback' href='mailto:taskupalaute@helmet-kirjasto.fi?subject=Palautetta HelMet-taskukirjastosta'>Palaute</a>
+          </div>
+          <div class='terms'>
+            <h3>Käytön ehdot</h3>
+            <p>Tätä sovellusta ylläpitää ja sen tarjoaa käyttöön Helsingin kaupunginkirjasto. Asentamalla sovelluksen ja käyttämällä sitä sitoudut noudattamaan näitä ja sovelluksen käyttöön mahdollisesti liittyvän kolmannen osapuolen sivuston käyttöehtoja. Pidätämme itsellämme oikeuden muuttaa näitä käyttöehtoja.</p>
+            <p>1. Käyttäjät</p>
+            <p>Sovellusta voivat käyttää HelMet-kirjaston asiakkaat. HelMet-kirjastoon kuuluvat Helsingin kaupunginkirjasto, Vantaan kaupunginkirjasto, Espoon kaupunginkirjasto ja Kauniaisten kaupunginkirjasto.</p>
+            <p>
+              HelMet-kirjaston asiakkaana olet sitoutunut kirjaston käyttösääntöjen noudattamiseen. Olet vastuussa siitä aineistosta, joka kirjastokortillasi lainataan. Katso käyttösäännöt tarkemmin www.helmet.fi.
+              Saatamme kerätä sovelluksen käyttöä koskevia tietoja, joihin ei sisälly yksittäisen käyttäjän henkilötiedot tai muu henkilötietolain suojaama tieto. Helmet-kirjaston henkilötietolain mukainen rekisteriseloste on saatavilla www.helmet.fi.
+            </p>
+            <p>2. Saatavuus</p>
+            <p>Sovelluksemme tarjotaan käyttöön sellaisenaan ja sen toimintaa voivat tilapäisesti haitata virheet, päivitykset tai seikat, joihin emme voi vaikuttaa. Pidätämme oikeuden muuttaa tai poistaa sovelluksen tai sen osia käytöstäsi milloin tahansa ilman erillistä ilmoitusta. Käyttäjänä vastaat itse Internet-palveluntarjoajan maksuista ja muista sovelluksemme käyttöön liittyvistä maksuista.</p>
+            <p>3. Immateriaalioikeudet</p>
+            <p>Sovelluksen ja sen kautta käytettävien tietojen, sisältöjen ja ohjelmistojen kaikki immateriaalioikeudet kuuluvat Helsingin kaupunginkirjastolle, sen lisenssinantajille tai sovelluksen käyttöön mahdollisesti liittyvän kolmannen osapuolen sivuston ylläpitäjälle. Sovelluksen kopiointia, muokkaamista, jakelua, myymistä, lisensoimista ja käyttämistä kaupallisiin tarkoituksiin säätelee sille osoitettu lisenssi. Sovellusta tai sen sisältämää tekijänoikeudellista materiaalia ei saa käyttää laittomasti.</p>
+            <p>4. Linkit muihin sivustoihin</p>
+            <p>Emme ole hyväksyneet tai tarkastaneet sovelluksen myötä mahdollisesti käyttämiäsi kolmannen osapuolten sivustoja tai linkillä sivustoomme yhdistettyjä kolmansien osapuolten sivustoja, emmekä ole vastuussa millään tapaa niiden sisällöstä. Kolmansien osapuolten ylläpitämien sivustojen käytössä sovelletaan kyseisten sivustojen ja alustojen sääntöjä.</p>
+            <p>5. Vastuuvapauslauseke</p>
+            <p>Helsingin kaupunginkirjasto ei takaa sovelluksen tai sen kautta käytetyn sisällön paikkansapitävyyttä, luotettavuutta tai täydellisyyttä. Helsingin kaupunginkirjasto, lisenssinantajamme ja sovelluksen käyttöön mahdollisesti liittyvien kolmannen osapuolen sivustojen ylläpitäjät eivät ole vastuussa sovelluksen käytön tai käytön estymisen sinulle tai kolmannelle osapuolelle aiheuttamista suorista tai epäsuorista, satunnaisista tai johdannaisista menetyksistä tai vahingoista, mukaan lukien sovelluksen lataamisesta johtuvat tietojen menetykset tai vahingot.</p>
+            <p>Sinua voivat koskea muut kuluttajaoikeudet, joihin nämä käyttöehdot eivät vaikuta. Jos jokin näiden käyttöehtojen ehdoista todetaan lainvastaiseksi, pätemättömäksi tai toimeenpanokelvottomaksi, ehtojen kaikki muut kohdat pysyvät edelleen voimassa.</p>
+            <p>6. Sovellettava lainsäädäntö</p>
+            <p>Näitä käyttöehtoja sovelletaan Suomen lakien mukaan.</p>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id='work-template' type='text/template'>
+    <div class='work-picture'>
+      <img src="<%= picture_url %>">
+    </div>
+    <div class='work_content'>
+      <h2 class='work_header'>
+        <span class='work-title'><%= title %></span>
+      </h2>
+      <div class='work_author'>
+        <span class='work-author'><%= author %></span>
+      </div>
+      <div class='work_publisher'>
+        <span class='work-publisher'><%= publisher %>,</span>
+        <span class='work-year'><%= publication_year %></span>
+      </div>
+      <div class="status <%= status_important %>"><%= status %></div>
+    </div>
+  </script>
+  <script id='work-action-template' type='text/template'>
+    <a class='button renew-loan' href='#/renew_loan'>Uusi laina</a>
+    <a class='button reserve-book' href='#/reserve'>Varaa teos</a>
+    <a class='button small add-pin' href='#/add'>Muistilistaan</a>
+    <a class='button small fb-like' href='#/fb_like'>Suosittele</a>
+    <div class='holdings'>
+      <b class='holdings-header'><%= holdings_count %> <%= holdings_word %> hyllyssä:</b>
+      <div class='holdings-content'><%= holdings_content %></div>
+    </div>
+  </script>
+  <script id='receipt-item-template' type='text/template'>
+    <h1><%= short_title %></h1>
+    <h2><%= author %></h2>
+    <h3>Eräpäivä:</h3>
+    <div class="due-date <%= status_important %>"><%= due_date%></div>
+  </script>
+  <script id='receipt-view-template' type='text/template'>
+    <header>
+      <h1>Lainakuitti</h1>
+      <h2><%= current_date %></h2>
+      <p>
+        -------------------------
+      </p>
+    </header>
+    <ul></ul>
+    <footer>
+      <p>
+        -------------------------
+      </p>
+      <p>
+        Kiitos ja hyvää päivänjatkoa!
+      </p>
+    </footer>
+    <div class='bottom'></div>
+  </script>
+  <script id='barcode-confirm-template' type='text/template'>
+    <div class='col left width_4_columns'>
+      <div class='actions'>
+        <p>Olet lainaamassa: <%= title %></p>
+        <form class='barcode-pin-confirm-form'>
+          <input class='pin-input' name='pin-input' pattern='[0-9]*' placeholder='Syötä pin-koodi' type='password' />
+        </form>
+      </div>
+    </div>
+  </script>
+  <script id='exceptional-situation-template' type='text/template'>
+    <div class='col left width_4_columns'>
+      <div class='actions'>
+        <% for (var i = 0; i < messages.length; i++) { %>
+        <% var message = messages[i]; %>
+        <p><%= message %></p>
+        <% } %>
+      </div>
+    </div>
+  </script>
+  <script id='reserve-book-template' type='text/template'>
+    <li data-id="<%= id %>"><%= name %></li>
+  </script>
+</body>

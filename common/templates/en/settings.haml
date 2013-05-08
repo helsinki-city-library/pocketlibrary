@@ -1,0 +1,62 @@
+.mid-bar.menu
+  %a.col.left.width_2_columns(data-name="user-info-content" href="#/settings" class="selected") you 
+  %a.col.right.width_2_columns(data-name="general-info" href="#/info") service info
+
+.content-scroller
+  .content
+    .col.width_4_columns(id="user-info-content")
+      .user-info
+        .user_name <%= first_name %> <%= last_name %>
+        .user_cardNum 
+          %span.cardNum-icon #
+          %span.cardNum <%= card_number %>
+        -#%a(href="#/showBar" class="button small show_bar_button") Show barcode
+
+      .debt
+        %h3 Debt total
+        %span.payments <%= payments %> €
+
+      .logout
+        %a(href="#/logout" class="button") Log out
+
+    .col.width_4_columns(id="general-info")
+      .description
+        HelMet Pocket Library is a mobile service from HelMet Library. The service can be used to renew loans, reserve items, borrow directly from other library users, browse the library collection and recommend or comment items on your Facebook page.
+        
+        %a(href="mailto:taskupalaute@helmet-kirjasto.fi?subject=Feedback to Pocket Library" class="button feedback") Feedback
+      .terms
+        %h3 Terms and conditions of use
+        
+        %p This service is provided and maintained by Helsinki City Library. By installing the application and using it you agree these terms and conditions and any other terms and conditions assigned by a third party. We reserve the right to change these terms and conditions without further notice.
+
+        %p 1. Users
+        
+        %p The service can be used by HelMet Library customers. HelMet Library comprises of Helsinki City Library, Vantaa City Library, Espoo City Library and Kauniainen City Library.
+
+        %p As a customer of HelMet Library you have agreed on user regulations. You are responsible of all materials borrowed with your library card. More information about user regulations www.helmet.fi.
+
+        %p We are free to collect any data involving the use of the application that does not include personal data or other information protected by the Personal Data Act. The description of the personal data file of the HelMet Library customer register is published in www.helmet.fi.
+        
+        %p 2. Availability
+        
+        %p The application is provided as it is and it can temporarily malfunction because of errors, updates or other factors that we are not able to affect. We can move or remove the application or parts of it any time without further notice. Users are personally responsible of fees caused by the use of internet or other costs related to the use of the application.
+
+        %p 3. Immaterial rights
+        
+        %p All data, software or other content that is part of or is used by the application are property of Helsinki City Library or its partners, licensors and other parties connected to the use of the application. Copying, editing, selling, distributing, licensing or using the application for other commercial purposes is regulated by approved license. The application or the copyright material included shall not be used illegally.
+
+        %p 4. Connections to other parties
+        
+        %p We have not accepted or audited any sites or links that you may use while using the application and are not responsible of the actions or content of those outside sources. Using third party connections means accepting their terms and conditions of use.
+
+        %p 5. Disclaimers
+        
+        %p Helsinki City Library does not guarantee the reliability, accuracy or faultlessness of the application or any content included. Helsinki City Library, its licensors and other third parties connected to the application held no responsibility of direct or indirect, random or derivative losses or damage using the application or that failing, including any data loss or damage downloading the application.
+
+        %p You can be under other customer rights that these terms and conditions of use do not affect. If any part of these terms and conditions of use states as illegal or invalid all other terms and conditions of use are still valid.
+
+        %p 6. The applicable law
+        
+        %p These terms and conditions of use are applied according to the Finnish law.
+        
+        %br

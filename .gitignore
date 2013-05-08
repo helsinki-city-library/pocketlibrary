@@ -1,0 +1,7 @@
+.sass-cache
+.ds_store
+local.properties
+common/build
+android/build
+iphone/build
+iphone/CordovaLib/build

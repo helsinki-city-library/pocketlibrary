@@ -1,0 +1,202 @@
+@mixin border-radius($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin border-radius-partial($top, $right, $bottom, $left) {
+    @if($top) {
+        -moz-border-radius-topleft: $top;
+        -webkit-border-top-left-radius: $top;
+        border-top-left-radius: $top;
+    }
+    @if($right) {
+        -moz-border-radius-topright: $right;
+        -webkit-border-top-right-radius: $right;
+        border-top-right-radius: $right;
+    }
+    @if($bottom) {
+        -moz-border-radius-bottomright: $bottom;
+        -webkit-border-bottom-right-radius: $bottom;
+        border-bottom-right-radius: $bottom;
+    }
+    @if($left) {
+        -moz-border-radius-bottomleft: $left;
+        -webkit-border-bottom-left-radius: $left;
+        border-bottom-left-radius: $left;
+    }
+}
+
+@mixin background-gradient-simple($start, $end) {
+    background-color: $end;
+    background-image: -moz-linear-gradient(top, $start, $end);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($start), to($end));
+    background-repeat: no-repeat;
+}
+
+@mixin make-bubble($width) {
+    width: $width;
+    background: black;
+    color: white;
+    z-index: 30;
+    padding-left: 10px;
+    padding-top: 10px;
+
+    font-size: 10pt;
+
+    @include border-radius(10px);
+    background-color: black;
+
+    label {
+        margin-top: 15px;
+    }
+
+    .actions {
+        margin: 15px 0;
+    }
+
+    &.left {
+        margin-left: -55px;
+
+        .bubble {
+            position: absolute;
+            top: 10px;
+            right: -20px;
+
+            font-size: 0px; line-height: 0%;
+            width: 0; height: 0;
+            border-color: transparent transparent transparent #222222;
+            border-style: solid;
+            border-width: 10px;
+        }
+    }
+
+    &.right {
+        margin-left: 1em;
+
+        .bubble {
+            position: absolute;
+            top: 10px;
+            left: -20px;
+
+            font-size: 0px; line-height: 0%;
+            width: 0; height: 0;
+            border-color: transparent #222222 transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+        }
+    }
+
+    .error {
+        @include border-radius(10px);
+        background-color: red;
+        color: white;
+        margin-bottom: 5px;
+        padding: 7px 0 0 7px;
+        width: 150px;
+        height: 20px;
+        font-size: 9pt;
+        display: none;
+    }
+}
+
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+    /*-moz-box-shadow: $x $y $blur $spread $color;
+    -webkit-box-shadow: $x $y $blur $spread $color;*/
+}
+
+@mixin inset-shadow($x, $y, $blur, $color) {
+    -moz-box-shadow: inset $x $y $blur $color;
+    -webkit-box-shadow: inset $x $y $blur $color;
+}
+
+@mixin make-flex-button($bg_start, $bg_end) {
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    padding: 7px 7px 6px 7px;
+
+    @include user-select(none);
+    @include background-gradient-simple($bg_start, $bg_end);
+    @include border-radius(7px);
+    @include box-shadow(0px, 0px, 5px, 0px, #daccae);
+
+    div.text {
+        text-shadow: #777777 0px -1px 0px;
+        font-weight: 700;
+    }
+}
+
+@mixin make-button($bg_start, $bg_end, $width, $height) {
+    cursor: pointer;
+    height: $height;
+    width: $width;
+    color: white;
+    font-size: 12pt;
+
+    @include user-select(none);
+    @include background-gradient-simple($bg_start, $bg_end);
+    @include border-radius(7px);
+    @include box-shadow(0px, 0px, 5px, 0px, #daccae);
+
+    div.text {
+        text-shadow: #777777 0px -1px 1px;
+        padding-top: 7px;
+        text-align: center;
+    }
+}
+
+@mixin make-normal-button($bg_start, $bg_end, $hover_start, $hover_end, $shadow, $hover_shadow) { 
+    @include background-gradient-simple($bg_start, $bg_end);
+    @include border-radius(7px);
+    border: none;
+    font-family: Helvetica, arial, "sans-serif";
+    font-size: 12pt;
+    text-shadow: $shadow 0px -1px 0px;
+    font-weight: 700;
+    color: white;
+    padding: 7px 7px 6px 7px;
+
+    &.left {
+        margin-right: 10px;
+    }
+    &:hover {
+        cursor: pointer;
+        @include background-gradient-simple($hover_start, $hover_end);
+        text-shadow: $hover_shadow 0px -1px 0px;
+    }
+}
+
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+  -khtml-user-select: $value;
+  -moz-user-select: $value;
+  -o-user-select: $value;
+  user-select: $value;
+}
+
+@mixin pretty-input {
+    @include pretty-label;
+
+    border: 1px solid #d9d0c5;
+    @include inset-shadow(2px, 3px, 5px, #d9d0c5);
+    @include border-radius(7px);
+    background-color: white;
+    padding: 7px 8px; 
+    outline: none;
+    color: $dark_brown;
+
+    &:focus, &.focus {
+        -moz-box-shadow: inset 2px 3px 5px #d9d0c5, 0 0 15px 0 $dark_orange;
+        -webkit-box-shadow: inset 2px 3px 5px #d9d0c5, 0 0 15px 0 $dark_orange;
+        border: 1px solid $dark_orange;
+    }
+}
+
+@mixin pretty-label {
+    font-family: Helvetica;
+    font-weight: 300;
+    font-size: 16pt;
+    color: #d9d0c5;
+}
+
