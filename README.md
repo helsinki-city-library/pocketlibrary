@@ -1,7 +1,7 @@
 Pocket Library
 ==============
 
-Pocek Library is a new kind of a service for library patrons. It runs on
+Pocket Library is a new kind of a service for library patrons. It runs on
 modern iPhone and Android smartphones.
 
 The service expands the traditional notion of checking out materials, making it
